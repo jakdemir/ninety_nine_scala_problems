@@ -16,6 +16,9 @@ class ProblemSuite extends FunSuite {
     val listExample1 = List(1, 1, 2, 3, 5, 8)
     val listExample2 = List(1, 2, 3, 2, 1)
     val listExample3 = List(List(1, 1), 2, List(3, List(5, 8)))
+    val listExample4 = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+    val listExample5 = List('a, 'b, 'c, 'a, 'd, 'e)
+    val listExample6 = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
   }
 
   test("P01: last on Lists") {
@@ -97,6 +100,39 @@ class ProblemSuite extends FunSuite {
       assert(Problem07.flatten(list1) === list1)
     }
   }
+
+  test("P08: compress on Lists") {
+    new ListGroup {
+      assert(Problem08.compress(listExample4) === listExample5)
+      assert(Problem08.compress(listNil) === listNil)
+      assert(Problem08.compress(list1) === list1)
+      assert(Problem08.compress(list2) === list2)
+      assert(Problem08.compress(listExample2) === listExample2)
+      assert(Problem08.compress(listExample1) === List(1, 2, 3, 5, 8))
+    }
+  }
+
+  test("P09: pack on Lists") {
+    new ListGroup {
+      assert(Problem09.pack(listExample4) === listExample6)
+      assert(Problem09.pack(listExample5) === List(List('a), List('b), List('c), List('a), List('d), List('e)))
+      assert(Problem09.pack(listNil) === listNil)
+      assert(Problem09.pack(list1) === List(list1))
+    }
+  }
+
+  test("P10 encode on Lists") {
+    new ListGroup {
+      assert(Problem10.encode(listExample4) === List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
+    }
+  }
+
+  test("P11 encodeModified on Lists") {
+    new ListGroup {
+      assert(Problem11.encodeModified(listExample4) === List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e)))
+    }
+  }
+
 
 
 }
