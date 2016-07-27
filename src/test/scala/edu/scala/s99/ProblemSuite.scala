@@ -17,6 +17,7 @@ class ProblemSuite extends FunSuite {
     val listExample2 = List(1, 2, 3, 2, 1)
     val listExample3 = List(List(1, 1), 2, List(3, List(5, 8)))
     val listExample4 = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+    val listExample4Encoded = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
     val listExample5 = List('a, 'b, 'c, 'a, 'd, 'e)
     val listExample6 = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
   }
@@ -123,16 +124,28 @@ class ProblemSuite extends FunSuite {
 
   test("P10 encode on Lists") {
     new ListGroup {
-      assert(Problem10.encode(listExample4) === List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e)))
+      assert(Problem10.encode(listExample4) === List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
     }
   }
 
   test("P11 encodeModified on Lists") {
     new ListGroup {
-      assert(Problem11.encodeModified(listExample4) === List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e)))
+      assert(Problem11.encodeModified(listExample4) === List((4, 'a), 'b, (2, 'c), (2, 'a), 'd, (4, 'e)))
     }
   }
 
+  test("P12 Decode a run-length encoded list.") {
+    new ListGroup {
+      assert(Problem12.decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) ===
+        List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+    }
+  }
+
+  test("P13 encodeDirect a list.") {
+    new ListGroup {
+      assert(Problem13.encodeDirect(listExample4) === listExample4Encoded)
+    }
+  }
 
 
 }
