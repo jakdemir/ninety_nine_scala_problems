@@ -5,6 +5,8 @@ import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
+import scala.collection.mutable
+
 @RunWith(classOf[JUnitRunner])
 class ProblemSuite extends FunSuite {
 
@@ -20,6 +22,8 @@ class ProblemSuite extends FunSuite {
     val listExample4Encoded = List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))
     val listExample5 = List('a, 'b, 'c, 'a, 'd, 'e)
     val listExample6 = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
+    val listExample7 = List('a, 'b, 'c, 'd, 'e)
+    val listExample8 = List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd, 'e)
   }
 
   test("P01: last on Lists") {
@@ -144,6 +148,98 @@ class ProblemSuite extends FunSuite {
   test("P13 encodeDirect a list.") {
     new ListGroup {
       assert(Problem13.encodeDirect(listExample4) === listExample4Encoded)
+    }
+  }
+
+  test("P14 Duplicate the elements of a list") {
+    new ListGroup {
+      assert(Problem14.duplicate(listExample4) === listExample7)
+      assert(Problem14.duplicate(listExample8) === listExample7)
+
+    }
+  }
+
+  test("P15 Duplicate the elements of a list") {
+    new ListGroup {
+      assert(Problem15.duplicateN(3, List('a, 'b, 'c, 'c, 'd)) === List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd))
+      assert(Problem15.duplicateN(0, Nil) === List())
+      assert(Problem15.duplicateN(0, listExample4) === List())
+    }
+  }
+
+  test("P16 Duplicate the elements of a list") {
+    new ListGroup {
+      assert(Problem16.drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k))
+      assert(Problem16.drop(1, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List())
+
+    }
+  }
+
+  test("P17 Duplicate the elements of a list") {
+    new ListGroup {
+      assert(Problem17.split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) ===(List('a, 'b, 'c), List('d, 'e, 'f, 'g, 'h, 'i,
+        'j, 'k)))
+    }
+  }
+
+  test("P18 Extract a slice from a list") {
+    new ListGroup {
+      assert(Problem18.slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('d, 'e, 'f, 'g))
+    }
+  }
+
+  test("P19 Rotate a list _N_ places to the left.") {
+    new ListGroup {
+      assert(Problem19.rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c))
+      assert(Problem19.rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i))
+    }
+  }
+
+  test("P20 Remove the _K_th element from a list") {
+    new ListGroup {
+      assert(Problem20.removeAt(1, List('a, 'b, 'c, 'd)) ===(List('a, 'c, 'd), 'b))
+      intercept[NoSuchElementException](Problem20.removeAt(10, List('a, 'b, 'c, 'd)))
+      intercept[NoSuchElementException](Problem20.removeAt(10, List()))
+    }
+  }
+
+  test("P21 Insert an element at a given position into a list") {
+    new ListGroup {
+      assert(Problem21.insertAt('new, 1, List('a, 'b, 'c, 'd)) === List('a, 'new, 'b, 'c, 'd))
+    }
+  }
+
+  test("P22 Create a list containing all integers within a given range") {
+    new ListGroup {
+      assert(Problem22.range(4, 9) === List(4, 5, 6, 7, 8, 9))
+      assert(Problem22.range(-2, 2) === List(-2, -1, 0, 1, 2))
+      assert(Problem22.range(2, 2) === List(2))
+      intercept[Exception](Problem22.range(2, -2))
+    }
+  }
+
+  test("P23 Extract a given number of randomly selected elements from a list.") {
+    new ListGroup {
+      assert(Problem23.randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)).length === 3)
+    }
+  }
+  test("P24 Lotto: Draw _N_ different random numbers from the set 1.._M_.") {
+    new ListGroup {
+      assert(Problem24.lotto(6, 49).length === 6)
+      assert(Problem24.lotto(6, 49).filter((ball: Int) => ball > 49).length === 0)
+    }
+  }
+
+  test("P25 Generate a random permutation of the elements of a list") {
+    new ListGroup {
+      assert(Problem25.randomPermute(List('a, 'b, 'c, 'd, 'e, 'f)).length === 6)
+    }
+  }
+
+  test("P26 Generate the combinations of _K_ distinct objects chosen from the _N_ elements of a list.") {
+    new ListGroup {
+      assert(Problem26.kCombinations(3, List(1, 2, 3, 4, 5, 6)) === List(List(1, 2, 3), List(1, 2, 4), List(1, 2, 5), List(1, 2, 6), List(1, 3, 4), List(1, 3, 5), List(1, 3, 6), List(1, 4, 5), List(1, 4, 6), List(1, 5, 6), List(2, 3, 4), List(2, 3, 5), List(2, 3, 6), List(2, 4, 5), List(2, 4, 6), List(2, 5, 6), List(3, 4, 5), List(3, 4, 6), List(3, 5, 6), List(4, 5, 6))
+      )
     }
   }
 
