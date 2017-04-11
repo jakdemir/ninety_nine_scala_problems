@@ -11,6 +11,7 @@ object Problem11 {
   private def encodeModifiedInner(list: List[Any]): List[Any] = list match {
     case Nil => Nil
     case (count, letter) :: tail => if (count == 1) List(letter) ::: encodeModifiedInner(tail) else List((count, letter)) ::: encodeModifiedInner(tail)
+    case _ => Nil
   }
 
 }
