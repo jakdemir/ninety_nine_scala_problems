@@ -12,6 +12,7 @@ object Problem11 {
     case Nil => Nil
     case (count, letter) :: tail => if (count == 1) List(letter) ::: encodeModifiedInner(tail) else List((count, letter)) ::: encodeModifiedInner(tail)
     case _ => Nil
+      
   }
 
 }
