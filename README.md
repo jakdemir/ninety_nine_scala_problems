@@ -5,7 +5,7 @@
 
 These are an adaptation of the [Ninety-Nine Prolog Problems][1] written by Werner Hett at the Berne University of Applied Sciences in Berne, Switzerland. I ([Phil Gold][2]) have altered them to be more amenable to programming in Scala. [Feedback is appreciated][3], particularly on anything marked TODO.
 
-The problems have different levels of difficulty. Those marked with a single asterisk (*) are easy. If you have successfully solved the preceeding problems you should be able to solve them within a few (say 15) minutes. Problems marked with two asterisks (**) are of intermediate difficulty. If you are a skilled Scala programmer it shouldn't take you more than 30-90 minutes to solve them. Problems marked with three asterisks (***) are more difficult. You may need more time (i.e. a few hours or more) to find a good solution. The difficulties were all assigned for the Prolog problems, but the Scala versions seem to be of roughly similar difficulty.
+The problems have different levels of difficulty. Those marked with a single asterisk (\*) are easy. If you have successfully solved the preceeding problems you should be able to solve them within a few (say 15) minutes. Problems marked with two asterisks (\*\*) are of intermediate difficulty. If you are a skilled Scala programmer it shouldn't take you more than 30-90 minutes to solve them. Problems marked with three asterisks (\*\*\*) are more difficult. You may need more time (i.e. a few hours or more) to find a good solution. The difficulties were all assigned for the Prolog problems, but the Scala versions seem to be of roughly similar difficulty.
 
 Your goal should be to find the most elegant solution of the given problems. Efficiency is important, but clarity is even more crucial. Some of the (easy) problems can be trivially solved using built-in functions. However, in these cases, you learn more if you try to find your own solution.
 
@@ -21,19 +21,19 @@ The solutions to the problems in this section will be in objects named after the
 
 In many cases, there's more than one reasonable approach. The files linked here may include multiple solutions, with all but one commented out. They'll also indicate whether there's a builtin method in Scala that accomplishes the task.
 
-[**P01][4] (*) Find the last element of a list.**
+**[P01][4] (\*) Find the last element of a list.**
 : Example:
 
     scala&gt; last(List(1, 1, 2, 3, 5, 8))
     res0: Int = 8
 
-[**P02][5] (*) Find the last but one element of a list.**
+**[P02][5] (\*) Find the last but one element of a list.**
 : Example:
 
     scala&gt; penultimate(List(1, 1, 2, 3, 5, 8))
     res0: Int = 5
 
-[**P03][6] (*) Find the _K_th element of a list.**
+**[P03][6] (\*) Find the _K_th element of a list.**
 : By convention, the first element in the list is element 0\.
 
 Example:
@@ -41,31 +41,31 @@ Example:
     scala&gt; nth(2, List(1, 1, 2, 3, 5, 8))
     res0: Int = 2
 
-[**P04][7] (*) Find the number of elements of a list.**
+**[P04][7] (\*) Find the number of elements of a list.**
 : Example:
 
     scala&gt; length(List(1, 1, 2, 3, 5, 8))
     res0: Int = 6
 
-[**P05][8] (*) Reverse a list.**
+**[P05][8] (\*) Reverse a list.**
 : Example:
 
     scala&gt; reverse(List(1, 1, 2, 3, 5, 8))
     res0: List[Int] = List(8, 5, 3, 2, 1, 1)
 
-[**P06][9] (*) Find out whether a list is a palindrome.**
+**[P06][9] (\*) Find out whether a list is a palindrome.**
 : Example:
 
     scala&gt; isPalindrome(List(1, 2, 3, 2, 1))
     res0: Boolean = true
 
-[**P07][10] (**) Flatten a nested list structure.**
+**[P07][10] (\*\*) Flatten a nested list structure.**
 : Example:
 
     scala&gt; flatten(List(List(1, 1), 2, List(3, List(5, 8))))
     res0: List[Any] = List(1, 1, 2, 3, 5, 8)
 
-[**P08][11] (**) Eliminate consecutive duplicates of list elements.**
+**[P08][11] (\*\*) Eliminate consecutive duplicates of list elements.**
 : If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
 
 Example:
@@ -73,7 +73,7 @@ Example:
     scala&gt; compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     res0: List[Symbol] = List('a, 'b, 'c, 'a, 'd, 'e)
 
-[**P09][12] (**) Pack consecutive duplicates of list elements into sublists.**
+**[P09][12] (\*\*) Pack consecutive duplicates of list elements into sublists.**
 : If a list contains repeated elements they should be placed in separate sublists.
 
 Example:
@@ -81,7 +81,7 @@ Example:
     scala&gt; pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
 
-[**P10][13] (*) Run-length encoding of a list.**
+**[P10][13] (\*) Run-length encoding of a list.**
 : Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as tuples `(N, E)` where _N_ is the number of duplicates of the element _E_.
 
 Example:
@@ -89,7 +89,7 @@ Example:
     scala&gt; encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
 
-[**P11][14] (*) Modified run-length encoding.**
+**[P11][14] (\*) Modified run-length encoding.**
 : Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as `(N, E)` terms.
 
 Example:
@@ -97,7 +97,7 @@ Example:
     scala&gt; encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     res0: List[Any] = List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
 
-[**P12][15] (**) Decode a run-length encoded list.**
+**[P12][15] (\*\*) Decode a run-length encoded list.**
 : Given a run-length code list generated as specified in problem P10, construct its uncompressed version.
 
 Example:
@@ -105,7 +105,7 @@ Example:
     scala&gt; decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))
     res0: List[Symbol] = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 
-[**P13][16] (**) Run-length encoding of a list (direct solution).**
+**[P13][16] (\*\*) Run-length encoding of a list (direct solution).**
 : Implement the so-called run-length encoding data compression method directly. I.e. don't use other methods you've written (like P09's `pack`); do all the work directly.
 
 Example:
@@ -113,25 +113,25 @@ Example:
     scala&gt; encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
     res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
 
-[**P14][17] (*) Duplicate the elements of a list.**
+**[P14][17] (\*) Duplicate the elements of a list.**
 : Example:
 
     scala&gt; duplicate(List('a, 'b, 'c, 'c, 'd))
     res0: List[Symbol] = List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
 
-[**P15][18] (**) Duplicate the elements of a list a given number of times.**
+**[P15][18] (\*\*) Duplicate the elements of a list a given number of times.**
 : Example:
 
     scala&gt; duplicateN(3, List('a, 'b, 'c, 'c, 'd))
     res0: List[Symbol] = List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)
 
-[**P16][19] (**) Drop every _N_th element from a list.**
+**[P16][19] (\*\*) Drop every _N_th element from a list.**
 : Example:
 
     scala&gt; drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     res0: List[Symbol] = List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
 
-**[P17][20] (*) Split a list into two parts.**
+**[P17][20] (\*) Split a list into two parts.**
 : The length of the first part is given. Use a Tuple for your result.
 
 Example:
@@ -139,7 +139,7 @@ Example:
     scala&gt; split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     res0: (List[Symbol], List[Symbol]) = (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
 
-**[P18][21] (**) Extract a slice from a list.**
+**[P18][21] (\*\*) Extract a slice from a list.**
 : Given two indices, _I_ and _K_, the slice is the list containing the elements from and including the _I_th element up to but not including the _K_th element of the original list. Start counting the elements with 0.
 
 Example:
@@ -147,7 +147,7 @@ Example:
     scala&gt; slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     res0: List[Symbol] = List('d, 'e, 'f, 'g)
 
-**[P19][22] (**) Rotate a list _N_ places to the left.**
+**[P19][22] (\*\*) Rotate a list _N_ places to the left.**
 : Examples:
 
     scala&gt; rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
@@ -156,7 +156,7 @@ Example:
     scala&gt; rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
     res1: List[Symbol] = List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
 
-**[P20][23] (*) Remove the _K_th element from a list.**
+**[P20][23] (\*) Remove the _K_th element from a list.**
 : Return the list and the removed element in a Tuple. Elements are numbered from 0.
 
 Example:
@@ -164,19 +164,19 @@ Example:
     scala&gt; removeAt(1, List('a, 'b, 'c, 'd))
     res0: (List[Symbol], Symbol) = (List('a, 'c, 'd),'b)
 
-**[P21][24] (*) Insert an element at a given position into a list.**
+**[P21][24] (\*) Insert an element at a given position into a list.**
 : Example:
 
     scala&gt; insertAt('new, 1, List('a, 'b, 'c, 'd))
     res0: List[Symbol] = List('a, 'new, 'b, 'c, 'd)
 
-**[P22][25] (*) Create a list containing all integers within a given range.**
+**[P22][25] (\*) Create a list containing all integers within a given range.**
 : Example:
 
     scala&gt; range(4, 9)
     res0: List[Int] = List(4, 5, 6, 7, 8, 9)
 
-**[P23][26] (**) Extract a given number of randomly selected elements from a list.**
+**[P23][26] (\*\*) Extract a given number of randomly selected elements from a list.**
 : Example:
 
     scala&gt; randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h))
@@ -184,13 +184,13 @@ Example:
 
 Hint: Use the solution to problem P20
 
-**[P24][27] (*) Lotto: Draw _N_ different random numbers from the set 1.._M_.**
+**[P24][27] (\*) Lotto: Draw _N_ different random numbers from the set 1.._M_.**
 : Example:
 
     scala&gt; lotto(6, 49)
     res0: List[Int] = List(23, 1, 17, 33, 21, 37)
 
-**[P25][28] (*) Generate a random permutation of the elements of a list.**
+**[P25][28] (\*) Generate a random permutation of the elements of a list.**
 : Hint: Use the solution of problem P23.
 
 Example:
@@ -198,7 +198,7 @@ Example:
     scala&gt; randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
     res0: List[Symbol] = List('b, 'a, 'd, 'c, 'e, 'f)
 
-**[P26][29] (**) Generate the combinations of _K_ distinct objects chosen from the _N_ elements of a list.**
+**[P26][29] (\*\*) Generate the combinations of _K_ distinct objects chosen from the _N_ elements of a list.**
 : In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are `C(12,3) = 220` possibilities (`C(N,K)` denotes the well-known binomial coefficient). For pure mathematicians, this result may be great. But we want to really generate all the possibilities.
 
 Example:
@@ -206,7 +206,7 @@ Example:
     scala&gt; combinations(3, List('a, 'b, 'c, 'd, 'e, 'f))
     res0: List[List[Symbol]] = List(List('a, 'b, 'c), List('a, 'b, 'd), List('a, 'b, 'e), ...
 
-**[P27][30] (**) Group the elements of a set into disjoint subsets.**
+**[P27][30] (\*\*) Group the elements of a set into disjoint subsets.**
 : a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities.
 
 Example:
@@ -225,7 +225,7 @@ Note that we do not want permutations of the group members; i.e. ((Aldo, Beat), 
 
 You may find more about this combinatorial problem in a good book on discrete mathematics under the term "multinomial coefficients".
 
-**[P28][31] (**) Sorting a list of lists according to length of sublists.**
+**[P28][31] (\*\*) Sorting a list of lists according to length of sublists.**
 : a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of the list according to their length. E.g. short lists first, longer lists later, or vice versa.
 
 Example:
@@ -246,37 +246,37 @@ Note that in the above example, the first two lists in the result have length 4 
 
 For the next section, we're going to take a different tack with the solutions. We'll declare a new class, `S99Int`, and an implicit conversion from regular `Int`s. The [arithmetic1][32] file contains the starting definitions for this section. Each individual solution will show the relevant additions to the `S99Int` class. The full class will be given at the end of the section.
 
-**[P31][33] (**) Determine whether a given integer number is prime.**
+**[P31][33] (\*\*) Determine whether a given integer number is prime.**
 :
 
     scala&gt; 7.isPrime
     res0: Boolean = true
 
-**[P32][34] (**) Determine the greatest common divisor of two positive integer numbers.**
+**[P32][34] (\*\*) Determine the greatest common divisor of two positive integer numbers.**
 : Use Euclid's algorithm.
 
     scala&gt; gcd(36, 63)
     res0: Int = 9
 
-**[P33][35] (*) Determine whether two positive integer numbers are coprime.**
+**[P33][35] (\*) Determine whether two positive integer numbers are coprime.**
 : Two numbers are coprime if their greatest common divisor equals 1\.
 
     scala&gt; 35.isCoprimeTo(64)
     res0: Boolean = true
 
-**[P34][36] (**) Calculate Euler's totient function `phi(m)`.**
+**[P34][36] (\*\*) Calculate Euler's totient function `phi(m)`.**
 : Euler's so-called totient function `phi(m)` is defined as the number of positive integers _r_ (1 &lt;= _r_ &lt;= _m_) that are coprime to _m_.
 
     scala&gt; 10.totient
     res0: Int = 4
 
-**[P35][37] (**) Determine the prime factors of a given positive integer. **
+**[P35][37] (\*\*) Determine the prime factors of a given positive integer. **
 : Construct a flat list containing the prime factors in ascending order.
 
     scala&gt; 315.primeFactors
     res0: List[Int] = List(3, 3, 5, 7)
 
-**[P36][38] (**) Determine the prime factors of a given positive integer (2).**
+**[P36][38] (\*\*) Determine the prime factors of a given positive integer (2).**
 : Construct a list containing the prime factors and their multiplicity.
 
     scala&gt; 315.primeFactorMultiplicity
@@ -287,30 +287,30 @@ Alternately, use a Map for the result.
     scala&gt; 315.primeFactorMultiplicity
     res0: Map[Int,Int] = Map(3 -&gt; 2, 5 -&gt; 1, 7 -&gt; 1)
 
-**[P37][39] (**) Calculate Euler's totient function phi(m) (improved).**
+**[P37][39] (\*\*) Calculate Euler's totient function phi(m) (improved).**
 : See problem P34 for the definition of Euler's totient function. If the list of the prime factors of a number _m_ is known in the form of problem P36 then the function `phi(m&gt;)` can be efficiently calculated as follows: Let [[_p_1, _m_1], [_p_2, _m_2], [_p_3, _m_3], ...] be the list of prime factors (and their multiplicities) of a given number _m_. Then `phi(m)` can be calculated with the following formula:
 
 phi(_m_) = (_p_1-1)*_p_1(_m_1-1) * (_p_2-1)*_p_2(_m_2-1) * (_p_3-1)*_p_3(_m_3-1) * ...
 
 Note that _a__b_ stands for the _b_th power of _a_.
 
-**[P38][40] (*) Compare the two methods of calculating Euler's totient function.**
+**[P38][40] (\*) Compare the two methods of calculating Euler's totient function.**
 : Use the solutions of problems P34 and P37 to compare the algorithms. Try to calculate phi(10090) as an example.
 
   
-**[P39][41] (*) A list of prime numbers.**
+**[P39][41] (\*) A list of prime numbers.**
 : Given a range of integers by its lower and upper limit, construct a list of all prime numbers in that range.
 
     scala&gt; listPrimesinRange(7 to 31)
     res0: List[Int] = List(7, 11, 13, 17, 19, 23, 29, 31)
 
-**[P40][42] (**) Goldbach's conjecture.**
+**[P40][42] (\*\*) Goldbach's conjecture.**
 : Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers. E.g. 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case. It has been numerically confirmed up to very large numbers (much larger than Scala's Int can represent). Write a function to find the two prime numbers that sum up to a given even integer.
 
     scala&gt; 28.goldbach
     res0: (Int, Int) = (5,23)
 
-**[P41][43] (**) A list of Goldbach compositions.**
+**[P41][43] (\*\*) A list of Goldbach compositions.**
 : Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
 
     scala&gt; printGoldbachList(9 to 20)
@@ -337,7 +337,7 @@ The file containing the full class for this section is [arithmetic.scala][44].
 
 As in the previous section, we will start with a skeleton file, [logic1.scala][45], and add code to it for each problem. The difference here is that the file starts out almost empty.
 
-**[P46][46] (**) Truth tables for logical expressions.**
+**[P46][46] (\*\*) Truth tables for logical expressions.**
 : Define functions `and`, `or`, `nand`, `nor`, `xor`, `impl`, and `equ` (for logical equivalence) which return true or false according to the result of their respective operations; e.g. `and(A, B)` is true if and only if both _A_ and _B_ are true.
 
     scala&gt; and(true, true)
@@ -357,7 +357,7 @@ Now, write a function called `table2` which prints the truth table of a given lo
     false true  false
     false false false
 
-**[P47][47] (*) Truth tables for logical expressions (2).**
+**[P47][47] (\*) Truth tables for logical expressions (2).**
 : Continue problem P46 by redefining `and`, `or`, etc as operators. (i.e. make them methods of a new class with an implicit conversion from Boolean.) `not` will have to be left as a object method.
 
     scala&gt; table2((a: Boolean, b: Boolean) =&gt; a and (a or not(b)))
@@ -367,10 +367,10 @@ Now, write a function called `table2` which prints the truth table of a given lo
     false true  false
     false false false
 
-**P48 (**) Truth tables for logical expressions (3).**
+**P48 (\*\*) Truth tables for logical expressions (3).**
 : Omitted for now.
 
-**[P49][48] (**) Gray code.**
+**[P49][48] (\*\*) Gray code.**
 : An _n_-bit Gray code is a sequence of _n_-bit strings constructed according to certain rules. For example,  
 n = 1: C(1) = ("0", "1").  
 n = 2: C(2) = ("00", "01", "11", "10").  
@@ -383,7 +383,7 @@ Find out the construction rules and write a function to generate Gray codes.
 
 See if you can use memoization to make the function more efficient.
 
-**[P50][49] (***) Huffman code.**
+**[P50][49] (\*\*\*) Huffman code.**
 : First of all, consult a good book on discrete mathematics or algorithms for a detailed description of Huffman codes!
 
 We suppose a set of symbols with their frequencies, given as a list of `(S, F)` Tuples. E.g. `(("a", 45), ("b", 13), ("c", 12), ("d", 16), ("e", 9), ("f", 5))`. Our objective is to construct a list of `(S, C)` Tuples, where _C_ is the Huffman code word for the symbol _S_.
@@ -421,7 +421,7 @@ Throughout this section, we will be adding methods to the classes above, mostly 
 **P54 Omitted; our tree representation will only allow well-formed trees.**
 : Score one for static typing.
 
-**[P55][52] (**) Construct completely balanced binary trees.**
+**[P55][52] (\*\*) Construct completely balanced binary trees.**
 : In a completely balanced binary tree, the following property holds for every node: The number of nodes in its left subtree and the number of nodes in its right subtree are almost equal, which means their difference is not greater than one.
 
 Define an object named `Tree`. Write a function `Tree.cBalanced` to construct completely balanced binary trees for a given number of nodes. The function should generate all solutions. The function should take as parameters the number of nodes and a single value to put in all of them.
@@ -429,13 +429,13 @@ Define an object named `Tree`. Write a function `Tree.cBalanced` to construct co
     scala&gt; Tree.cBalanced(4, "x")
     res0: List(Node[String]) = List(T(x T(x . .) T(x . T(x . .))), T(x T(x . .) T(x T(x . .) .)), ...
 
-**[P56][53] (**) Symmetric binary trees.**
+**[P56][53] (\*\*) Symmetric binary trees.**
 : Let us call a binary tree symmetric if you can draw a vertical line through the root node and then the right subtree is the mirror image of the left subtree. Add an `isSymmetric` method to the Tree class to check whether a given binary tree is symmetric. Hint: Write an `isMirrorOf` method first to check whether one tree is the mirror image of another. We are only interested in the structure, not in the contents of the nodes.
 
     scala&gt; Node('a', Node('b'), Node('c')).isSymmetric
     res0: Boolean = true
 
-**[P57][54] (**) Binary search trees (dictionaries).**
+**[P57][54] (\*\*) Binary search trees (dictionaries).**
 : Write a function to add an element to a binary search tree.
 
     scala&gt; End.addValue(2)
@@ -462,13 +462,13 @@ Finally, use that function to test your solution to P56.
     scala&gt; Tree.fromList(List(3, 2, 5, 7, 4)).isSymmetric
     res5: Boolean = false
 
-**[P58][55] (**) Generate-and-test paradigm.**
+**[P58][55] (\*\*) Generate-and-test paradigm.**
 : Apply the generate-and-test paradigm to construct all symmetric, completely balanced binary trees with a given number of nodes.
 
     scala&gt; Tree.symmetricBalancedTrees(5, "x")
     res0: List[Node[String]] = List(T(x T(x . T(x . .)) T(x T(x . .) .)), T(x T(x T(x . .) .) T(x . T(x . .))))
 
-**[P59][56] (**) Construct height-balanced binary trees.**
+**[P59][56] (\*\*) Construct height-balanced binary trees.**
 : In a height-balanced binary tree, the following property holds for every node: The height of its left subtree and the height of its right subtree are almost equal, which means their difference is not greater than one.
 
 Write a method `Tree.hbalTrees` to construct height-balanced binary trees for a given height with a supplied value for the nodes. The function should generate all solutions.
@@ -476,7 +476,7 @@ Write a method `Tree.hbalTrees` to construct height-balanced binary trees for a 
     scala&gt; Tree.hbalTrees(3, "x")
     res0: List[Node[String]] = List(T(x T(x T(x . .) T(x . .)) T(x T(x . .) T(x . .))), T(x T(x T(x . .) T(x . .)) T(x T(x . .) .)), ...
 
-**[P60][57] (**) Construct height-balanced binary trees with a given number of nodes.**
+**[P60][57] (\*\*) Construct height-balanced binary trees with a given number of nodes.**
 : Consider a height-balanced binary tree of height _H_. What is the maximum number of nodes it can contain? Clearly, _MaxN_ = 2_H_ \- 1. However, what is the minimum number _MinN_? This question is more difficult. Try to find a recursive statement and turn it into a function `minHbalNodes` that takes a height and returns _MinN_.
 
     scala&gt; minHbalNodes(3)
@@ -494,25 +494,25 @@ Now, we can attack the main problem: construct all the height-balanced binary tr
 
 Find out how many height-balanced trees exist for _N_ = 15.
 
-**[P61][58] (*) Count the leaves of a binary tree.**
+**[P61][58] (\*) Count the leaves of a binary tree.**
 : A leaf is a node with no successors. Write a method `leafCount` to count them.
 
     scala&gt; Node('x', Node('x'), End).leafCount
     res0: Int = 1
 
-**[61A][59] (*) Collect the leaves of a binary tree in a list.**
+**[61A][59] (\*) Collect the leaves of a binary tree in a list.**
 : A leaf is a node with no successors. Write a method `leafList` to collect them in a list.
 
     scala&gt; Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafList
     res0: List[Char] = List(b, d, e)
 
-**[P62][60] (*) Collect the internal nodes of a binary tree in a list.**
+**[P62][60] (\*) Collect the internal nodes of a binary tree in a list.**
 : An internal node of a binary tree has either one or two non-empty successors. Write a method `internalList` to collect them in a list.
 
     scala&gt; Node('a', Node('b'), Node('c', Node('d'), Node('e'))).internalList
     res0: List[Char] = List(a, c)
 
-**[P62B][61] (*) Collect the nodes at a given level in a list.**
+**[P62B][61] (\*) Collect the nodes at a given level in a list.**
 : A node of a binary tree is at level _N_ if the path from the root to the node has length _N_-1. The root node is at level 1. Write a method `atLevel` to collect all nodes at a given level in a list.
 
     scala&gt; Node('a', Node('b'), Node('c', Node('d'), Node('e'))).atLevel(2)
@@ -520,7 +520,7 @@ Find out how many height-balanced trees exist for _N_ = 15.
 
 Using `atLevel` it is easy to construct a method `levelOrder` which creates the level-order sequence of the nodes. However, there are more efficient ways to do that.
 
-**[P63][62] (**) Construct a complete binary tree.**
+**[P63][62] (\*\*) Construct a complete binary tree.**
 : A complete binary tree with height _H_ is defined as follows: The levels 1,2,3,...,_H_-1 contain the maximum number of nodes (i.e 2(_i_-1) at the level _i_, note that we start counting the levels from 1 at the root). In level _H_, which may contain less than the maximum possible number of nodes, all the nodes are "left-adjusted". This means that in a levelorder tree traversal all internal nodes come first, the leaves come second, and empty successors (the `End`s which are not really nodes!) come last.
 
 Particularly, complete binary trees are used as data structures (or addressing schemes) for heaps.
@@ -530,7 +530,7 @@ We can assign an address number to each node in a complete binary tree by enumer
     scala&gt; Tree.completeBinaryTree(6, "x")
     res0: Node[String] = T(x T(x T(x . .) T(x . .)) T(x T(x . .) .))
 
-**[P64][63] (**) Layout a binary tree (1).**
+**[P64][63] (\*\*) Layout a binary tree (1).**
 : ![][64]As a preparation for drawing a tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration on the right.
 
 In this layout strategy, the position of a node _v_ is obtained by the following two rules:
@@ -551,7 +551,7 @@ Write a method `layoutBinaryTree` that turns a tree of normal `Node`s into a tre
 
 The tree at right may be constructed with `Tree.fromList(List('n','k','m','c','a','h','g','e','u','p','s','q'))`. Use it to check your code.
 
-**[P65][65] (**) Layout a binary tree (2).**
+**[P65][65] (\*\*) Layout a binary tree (2).**
 : ![][66]An alternative layout method is depicted in the illustration opposite. Find out the rules and write the corresponding method. Hint: On a given level, the horizontal distance between neighboring nodes is constant.
 
 Use the same conventions as in problem P64.
@@ -561,7 +561,7 @@ Use the same conventions as in problem P64.
 
 The tree at right may be constructed with `Tree.fromList(List('n','k','m','c','a','e','d','g','u','p','q'))`. Use it to check your code.
 
-**[P66][67] (***) Layout a binary tree (3).**
+**[P66][67] (\*\*\*) Layout a binary tree (3).**
 : ![][68]Yet another layout strategy is shown in the illustration opposite. The method yields a very compact layout while maintaining a certain symmetry in every node. Find out the rules and write the corresponding method. Hint: Consider the horizontal distance between a node and its successor nodes. How tight can you pack together two subtrees to construct the combined binary tree?
 
 Use the same conventions as in problem P64 and P65. Note: This is a difficult problem. Don't give up too early!
@@ -571,7 +571,7 @@ Use the same conventions as in problem P64 and P65. Note: This is a difficult pr
 
 Which layout do you like most?
 
-**[P67][69] (**) A string representation of binary trees.**
+**[P67][69] (\*\*) A string representation of binary trees.**
 : ![][50]Somebody represents binary trees as strings of the following type (see example opposite):
 
     a(b(d,e),c(,f(g,)))
@@ -586,7 +586,7 @@ For simplicity, suppose the information in the nodes is a single letter and ther
     scala&gt; Tree.fromString("a(b(d,e),c(,f(g,)))")
     res1: Node[Char] = a(b(d,e),c(,f(g,)))
 
-**[P68][70] (**) Preorder and inorder sequences of binary trees.**
+**[P68][70] (\*\*) Preorder and inorder sequences of binary trees.**
 : We consider binary trees with nodes that are identified by single lower-case letters, as in the example of problem P67.
 
 a) Write methods `preorder` and `inorder` that construct the preorder and inorder sequence of a given binary tree, respectively. The results should be lists, e.g. `List('a','b','d','e','c','f','g')` for the preorder sequence of the example in problem P67.
@@ -604,7 +604,7 @@ b) If both the preorder sequence and the inorder sequence of the nodes of a bina
 
 What happens if the same character appears in more than one node? Try, for instance, `Tree.preInTree(List('a', 'b', 'a'), List('b', 'a', 'a'))`.
 
-**[P69][71] (**) Dotstring representation of binary trees.**
+**[P69][71] (\*\*) Dotstring representation of binary trees.**
 : We consider again binary trees with nodes that are identified by single lower-case letters, as in the example of problem P67. Such a tree can be represented by the preorder sequence of its nodes in which dots (.) are inserted where an empty subtree (`End`) is encountered during the tree traversal. For example, the tree shown in problem P67 is represented as `"abd..e..c.fg..."`. First, try to establish a syntax (BNF or syntax diagrams) and then write two methods, `toDotstring` and `fromDotstring`, which do the conversion in both directions.
 
     scala&gt; Tree.string2Tree("a(b(d,e),c(,f(g,)))").toDotstring
@@ -640,13 +640,13 @@ The starting code skeleton for this section is [mtree1.scala][74].
 **P70B Omitted; we can only create well-formed trees.**
 :   
 
-**[P70C][75] (*) Count the nodes of a multiway tree.**
+**[P70C][75] (\*) Count the nodes of a multiway tree.**
 : Write a method `nodeCount` which counts the nodes of a given multiway tree.
 
     scala&gt; MTree('a', List(MTree('f'))).nodeCount
     res0: Int = 2
 
-**[P70][76] (**) Tree construction from a node string.**
+**[P70][76] (\*\*) Tree construction from a node string.**
 : ![][73]We suppose that the nodes of a multiway tree contain single characters. In the depth-first order sequence of its nodes, a special character ^ has been inserted whenever, during the tree traversal, the move is a backtrack to the previous level.
 
 By this rule, the tree in the figure opposite is represented as:
@@ -658,19 +658,19 @@ Define the syntax of the string and write a function `string2MTree` to construct
     scala&gt; MTree('a', List(MTree('f', List(MTree('g'))), MTree('c'), MTree('b', List(MTree('d'), MTree('e'))))).toString
     res0: String = afg^^c^bd^e^^^
 
-**[P71][77] (*) Determine the internal path length of a tree.**
+**[P71][77] (\*) Determine the internal path length of a tree.**
 : We define the internal path length of a multiway tree as the total sum of the path lengths from the root to all nodes of the tree. By this definition, the tree in the figure of problem [P70][78] has an internal path length of 9. Write a method `internalPathLength` to return that sum.
 
     scala&gt; "afg^^c^bd^e^^^".internalPathLength
     res0: Int = 9
 
-**[P72][79] (*) Construct the postorder sequence of the tree nodes.**
+**[P72][79] (\*) Construct the postorder sequence of the tree nodes.**
 : Write a method `postorder` which constructs the postorder sequence of the nodes of a multiway tree. The result should be a `List`.
 
     scala&gt; "afg^^c^bd^e^^^".postorder
     res0: List[Char] = List(g, f, c, d, e, b, a)
 
-**[P73][80] (**) Lisp-like tree representation.**
+**[P73][80] (\*\*) Lisp-like tree representation.**
 : There is a particular notation for multiway trees in Lisp. Lisp is a prominent functional programming language. In Lisp almost everything is a list.
 
 Our example tree would be represented in Lisp as `(a (f g) c (b d e))`. The following pictures give some more examples.
@@ -817,7 +817,7 @@ _human-friendly form_:
 
 The notation for labeled graphs can also be used for so-called multi-graphs, where more than one edge (or arc) is allowed between two given nodes.
 
-**[P80][87] (***) Conversions.**
+**[P80][87] (\*\*\*) Conversions.**
 : Write methods to generate the graph-term and adjacency-list forms from a `Graph`. Write another method to output the human-friendly form for a graph. Make it the `toString` method for `Graph`. Write more functions to create graphs from strings.
 
 Hint: You might need separate functions for labeled and unlabeled graphs.
@@ -828,7 +828,7 @@ Hint: You might need separate functions for labeled and unlabeled graphs.
     scala&gt; Digraph.fromStringLabel("[p&gt;q/9, m&gt;q/7, k, p&gt;m/5]").toAdjacentForm
     res1: List[(String, List[(String, Int)])] = List((m,List((q,7))), (p,List((m,5), (q,9))), (k,List()), (q,List()))
 
-**[P81][88] (**) Path from one node to another one.**
+**[P81][88] (\*\*) Path from one node to another one.**
 : Write a method named `findPaths` to find acyclic paths from one node to another in a graph. The method should return all paths.
 
     scala&gt; Digraph.fromStringLabel("[p&gt;q/9, m&gt;q/7, k, p&gt;m/5]").findPaths("p", "q")
@@ -837,13 +837,13 @@ Hint: You might need separate functions for labeled and unlabeled graphs.
     scala&gt; Digraph.fromStringLabel("[p&gt;q/9, m&gt;q/7, k, p&gt;m/5]").findPaths("p", "k")
     res1: List[List[String]] = List()
 
-**[P82][89] (*) Cycle from a given node.**
+**[P82][89] (\*) Cycle from a given node.**
 : Write a method named `findCycles` to find closed paths (cycles) starting at a given node in a graph. The method should return all cycles.
 
     scala&gt; Graph.fromString("[b-c, f-c, g-h, d, f-b, k-f, h-g]").findCycles("f")
     res0: List[List[String]] = List(List(f, c, b, f), List(f, b, c, f))
 
-**[P83][90] (**) Construct all spanning trees.**
+**[P83][90] (\*\*) Construct all spanning trees.**
 : ![][91]Write a method `spanningTrees` to construct all spanning trees of a given graph. With this method, find out how many spanning trees there are for the graph depicted to the right. The data of this example graph can be found below. When you have a correct solution for the `spanningTrees` method, use it to define two other useful methods: `isTree` and `isConnected`. Both are five-minute tasks!
 
 Graph:
@@ -856,7 +856,7 @@ Graph:
     scala&gt; Graph.fromString("[a-b, b-c, a-c]").spanningTrees
     res0: List[Graph[String,Unit]] = List([a-b, b-c], [a-c, b-c], [a-b, a-c])
 
-**[P84][92] (**) Construct the minimal spanning tree.**
+**[P84][92] (\*\*) Construct the minimal spanning tree.**
 : ![][93]Write a method `minimalSpanningTree` to construct the minimal spanning tree of a given labeled graph. Hint: Use Prim's Algorithm. A small modification of the solution of P83 does the trick. The data of the example graph to the right can be found below.
 
 Graph:
@@ -870,7 +870,7 @@ Graph:
     scala&gt; Graph.fromStringLabel("[a-b/1, b-c/2, a-c/3]").minimalSpanningTree
     res0: Graph[String,Int] = [a-b/1, b-c/2]
 
-**[P85][94] (**) Graph isomorphism.**
+**[P85][94] (\*\*) Graph isomorphism.**
 : Two graphs _G_1(_N_1,_E_1) and _G_2(_N_2,_E_2) are isomorphic if there is a bijection f: _N_1 → _N_2 such that for any nodes _X_,_Y_ of _N_1, _X_ and _Y_ are adjacent if and only if f(_X_) and f(_Y_) are adjacent.
 
 Write a method that determines whether two graphs are isomorphic.
@@ -878,7 +878,7 @@ Write a method that determines whether two graphs are isomorphic.
     scala&gt; Graph.fromString("[a-b]").isIsomorphicTo(Graph.fromString("[5-7]"))
     res0: Boolean = true
 
-**[P86][95] (**) Node degree and graph coloration.**
+**[P86][95] (\*\*) Node degree and graph coloration.**
 : a) Write a method `Node.degree` that determines the degree of a given node.
 
     scala&gt; Graph.fromString("[a-b, b-c, a-c, a-d]").nodes("a").degree
@@ -894,19 +894,19 @@ c) Use Welsh-Powell's algorithm to paint the nodes of a graph in such a way that
     scala&gt; Graph.fromString("[a-b, b-c, a-c, a-d]").colorNodes
     res2: List[(Graph[String,Unit]#Node,Int)] = List((Node(a),1), (Node(b),2), (Node(c), 3), (Node(d), 2))
 
-**[P87][96] (**) Depth-first order graph traversal.**
+**[P87][96] (\*\*) Depth-first order graph traversal.**
 : Write a method that generates a depth-first order graph traversal sequence. The starting point should be specified, and the output should be a list of nodes that are reachable from this starting point (in depth-first order).
 
     scala&gt; Graph.fromString("[a-b, b-c, e, a-c, a-d]").nodesByDepthFrom("d")
     res0: List[String] = List(c, b, a, d)
 
-**[P88][97] (**) Connected components.**
+**[P88][97] (\*\*) Connected components.**
 : Write a function that splits a graph into its connected components.
 
     scala&gt; Graph.fromString("[a-b, c]").splitGraph
     res0: List[Graph[String,Unit]] = List([a-b], [c])
 
-**[P89][98] (**) Bipartite graphs.**
+**[P89][98] (\*\*) Bipartite graphs.**
 : Write a function that determines whether a given graph is bipartite.
 
     scala&gt; Digraph.fromString("[a&gt;b, c&gt;a, d&gt;b]").isBipartite
@@ -925,12 +925,12 @@ The complete source file for this section is [graph.scala][99].
 
 ## Miscellaneous Problems
 
-**[P90][100] (**) Eight queens problem**
+**[P90][100] (\*\*) Eight queens problem**
 : This is a classical problem in computer science. The objective is to place eight queens on a chessboard so that no two queens are attacking each other; i.e., no two queens are in the same row, the same column, or on the same diagonal.
 
 Hint: Represent the positions of the queens as a list of numbers 1.._N_. Example: `List(4, 2, 7, 3, 6, 8, 5, 1)` means that the queen in the first column is in row 4, the queen in the second column is in row 2, etc. Use the generate-and-test paradigm.
 
-**[P91][101] (**) Knight's tour.**
+**[P91][101] (\*\*) Knight's tour.**
 : Another famous problem is this one: How can a knight jump on an _N_×_N_ chessboard in such a way that it visits every square exactly once?
 
 Hints: Represent the squares by pairs of their coordinates of the form (_X_, _Y_), where both _X_ and _Y_ are integers between 1 and _N_. (Alternately, define a Point class for the same purpose.) Write a function jumps(_N_, (_X_, _Y_)) to list the squares that a knight can jump to from (_X_, _Y_) on a _N_×_N_ chessboard. And finally, represent the solution of our problem as a list of knight positions (the knight's tour).
@@ -939,7 +939,7 @@ It might be nice to find more than one tour, but a computer will take a long tim
 
 Can you find only "closed tours", where the knight can jump from its final position back to its starting position?
 
-**[P92][102] (***) Von Koch's conjecture.**
+**[P92][102] (\*\*\*) Von Koch's conjecture.**
 : Several years ago I met a mathematician who was intrigued by a problem for which he didn't know a solution. His name was Von Koch, and I don't know whether the problem has been solved since. [The "I" here refers to the author of the Prolog problems. &lt;[PMG][3]&gt;]
 
 ![][103]
@@ -952,19 +952,19 @@ Write a function that calculates a numbering scheme for a given tree. What is th
 
 ![][104]
 
-**P93 (***) An arithmetic puzzle.**
+**P93 (\*\*\*) An arithmetic puzzle.**
 : Given a list of integer numbers, find a correct way of inserting arithmetic signs (operators) such that the result is a correct equation. Example: With the list of numbers `List(2,3,5,7,11)` we can form the equations 2-3+5+7 = 11 or 2 = (3*5+7)/11 (and ten others!).
 
-**P94 (***) Generate K-regular simple graphs with N nodes.**
+**P94 (\*\*\*) Generate K-regular simple graphs with N nodes.**
 : In a K-regular graph all nodes have a degree of _K_; i.e. the number of edges incident in each node is _K_. How many (non-isomorphic!) 3-regular graphs with 6 nodes are there? See also a [table of results][105] and a [Java applet][106] that can represent graphs geometrically.
 
-**P95 (**) English number words.**
+**P95 (\*\*) English number words.**
 : On financial documents, like checks, numbers must sometimes be written in full words. Example: 175 must be written as one-seven-five. Write a function fullWords(num: Int) to print (non-negative) integer numbers in full words.
 
-**P96 (**) Syntax checker.**
+**P96 (\*\*) Syntax checker.**
 : ![][107]In a certain programming language (Ada) identifiers are defined by the syntax diagram (railroad chart) opposite. Transform the syntax diagram into a system of syntax diagrams which do not contain loops; i.e. which are purely recursive. Using these modified diagrams, write a function isIdentifier that can check whether or not a given string is a legal identifier.
 
-**[P97][108] (**) Sudoku. [(alternate solution)][109]**
+**[P97][108] (\*\*) Sudoku. [(alternate solution)][109]**
 : Sudoku puzzles go like this:
 
        Problem statement                 Solution
@@ -993,7 +993,7 @@ Write a function that calculates a numbering scheme for a given tree. What is th
 
 Every spot in the puzzle belongs to a (horizontal) row and a (vertical) column, as well as to one single 3×3 square (which we call "square" for short). At the beginning, some of the spots carry a single-digit number between 1 and 9. The problem is to fill the missing spots with digits in such a way that every number between 1 and 9 appears exactly once in each row, in each column, and in each square.
 
-**P98 (***) Nonograms.**
+**P98 (\*\*\*) Nonograms.**
 : Around 1994, a certain kind of puzzles was very popular in England. The "Sunday Telegraph" newspaper wrote: "Nonograms are puzzles from Japan and are currently published each week only in The Sunday Telegraph. Simply use your logic and skill to complete the grid and reveal a picture or diagram." As a programmer, you are in a better situation: you can have your computer do the work! Just write a little program ;-).
 
 The puzzle goes like this: Essentially, each row and column of a rectangular bitmap is annotated with the respective lengths of its distinct strings of occupied cells. The person who solves the puzzle must complete the bitmap given only these lengths.
@@ -1014,7 +1014,7 @@ The puzzle goes like this: Essentially, each row and column of a rectangular bit
 
 For the example above, the problem can be stated as the two lists `[[3],[2,1],[3,2],[2,2],[6],[1,5],[6],[1],[2]]` and `[[1,2],[3,1],[1,5],[7,1],[5],[3],[4],[3]]` which give the "solid" lengths of the rows and columns, top-to-bottom and left-to-right, respectively. Published puzzles are larger than this example, e.g. 25×20, and apparently always have unique solutions.
 
-**P99 (***) Crossword puzzle.**
+**P99 (\*\*\*) Crossword puzzle.**
 : Given an empty (or almost empty) framework of a crossword puzzle and a set of words. The problem is to place the words into the framework.
 
 ![][110]The particular crossword puzzle is specified in a text file which first lists the words (one word per line) in an arbitrary order. Then, after an empty line, the crossword framework is defined. In this framework specification, an empty character location is represented by a dot (.). In order to make the solution easier, character locations can also contain predefined character values. The puzzle opposite is defined in the file [p99a.dat][111], other examples are [p99b.dat][112] and [p99d.dat][113]. There is also an example of a puzzle ([p99c.dat][114]) which does not have a solution.
