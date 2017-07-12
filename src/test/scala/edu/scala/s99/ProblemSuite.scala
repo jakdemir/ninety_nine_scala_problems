@@ -1,7 +1,7 @@
 package edu.scala.s99
 
+import edu.scala.s99.Problem28.lsort
 import org.scalatest.FunSuite
-
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
@@ -246,6 +246,39 @@ class ProblemSuite extends FunSuite {
 		new ListGroup {
 			assert(Problem27.group(List(2, 3), List(1, 2, 3, 4, 5)) == List(List(List(1, 2), List(3, 4, 5)), List(List(1, 3), List(2, 4, 5)), List(List(1, 4), List(2, 3, 5)), List(List(1, 5), List(2, 3, 4)), List(List(2, 3), List(1, 4, 5)), List(List(2, 4), List(1, 3, 5)), List(List(2, 5), List(1, 3, 4)), List(List(3, 4), List(1, 2, 5)), List(List(3, 5), List(1, 2, 4)), List(List(4, 5), List(1, 2, 3))))
 
+		}
+	}
+
+	test("P28 Sorting a list of lists according to length of sublists.") {
+		new ListGroup {
+			assert((Problem28.lsort(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o)))) == List(List('o), List('d, 'e), List('d, 'e), List('m, 'n), List('a, 'b, 'c), List('f, 'g, 'h), List('i, 'j, 'k, 'l)))
+		}
+	}
+
+	test("P29 p28b") {
+		new ListGroup {
+			assert(Problem29.lsortFreq(List(List('a, 'b, 'c), List('d, 'e), List('f, 'g, 'h), List('d, 'e), List('i, 'j, 'k, 'l), List('m, 'n), List('o))) == List(List('i, 'j, 'k, 'l), List('o), List('a, 'b, 'c), List('f, 'g, 'h), List('d, 'e), List('d, 'e), List('m, 'n)))
+		}
+	}
+
+	test("P31 Determine whether a given integer number is prime.") {
+		new ListGroup {
+			assert(Problem31.IntImp(15).isPrime == false)
+			assert(Problem31.IntImp(7).isPrime == true)
+		}
+	}
+
+	test("P32 Determine the greatest common divisor of two positive integer numbers.") {
+		new ListGroup {
+			assert(Problem32.gcd(15, 75) == 15)
+			assert(Problem32.gcd(36, 63) == 9)
+		}
+	}
+
+	test("P33 Determine whether two positive integer numbers are coprime.") {
+		new ListGroup {
+			assert(Problem33.IntExt(35).isCoprimeTo(64) == true)
+			assert(Problem33.IntExt(6).isCoprimeTo(4) == false)
 		}
 	}
 
