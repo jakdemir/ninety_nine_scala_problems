@@ -282,4 +282,41 @@ class ProblemSuite extends FunSuite {
 		}
 	}
 
+	test("P34  Calculate Euler's totient function phi(m).") {
+		new ListGroup {
+			assert(Problem34.IntExt(10).totient == 4)
+			assert(Problem34.IntExt(6).totient == 2)
+		}
+	}
+
+	test("P35  Determine the prime factors of a given positive integer") {
+		new ListGroup {
+			assert(Problem35.IntExt(315).primeFactors() == List(3, 3, 5, 7))
+		}
+	}
+
+	test("P36 Determine the prime factors of a given positive integer (2)") {
+		new ListGroup {
+			assert(Problem36.IntExt(315).primeFactorMultiplicity == Map(3 -> 2, 5 -> 1, 7 -> 1).toList)
+		}
+	}
+
+	test("P37  Calculate Euler's totient function phi(m) (improved)") {
+		new ListGroup {
+			assert(Problem37.IntExt(10).totient == 4)
+			assert(Problem37.IntExt(6).totient == 2)
+		}
+	}
+
+	test("P39 A list of prime numbers.") {
+		new ListGroup {
+			assert(Problem39.listPrimesInRange(7 to 31) == List(7, 11, 13, 17, 19, 23, 29, 31))
+		}
+	}
+
+	test("P40 Goldbach's conjecture.") {
+		new ListGroup {
+			assert(Problem40.IntExt(28).goldbach == (5, 23))
+		}
+	}
 }
