@@ -319,4 +319,13 @@ class ProblemSuite extends FunSuite {
 			assert(Problem40.IntExt(28).goldbach == (5, 23))
 		}
 	}
+
+	test("P49 Gray code.") {
+		new ListGroup {
+			assert(Problem49.gray(1) == List("0", "1"))
+			assert(Problem49.gray(2) == List("00", "01", "11", "10"))
+			assert(Problem49.gray(3) == List("000", "001", "011", "010", "110", "111", "101", "100"))
+		}
+	}
+
 }
