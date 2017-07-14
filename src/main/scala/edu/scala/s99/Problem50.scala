@@ -1,5 +1,7 @@
 package edu.scala.s99
 
+import edu.scala.s99.common._
+
 /**
  * Created by jak on 7/13/17.
  */
@@ -11,11 +13,9 @@ object Problem50 {
 		}
 	}
 
-	class Tree[+T]
-
-	case class Node[T](val elem: T, val left: Tree[T], val right: Tree[T]) extends Tree[T]
-
-	case object Empty extends Tree[Nothing]
+	object SymbolFrequency {
+		def apply(symbol: String, frequency: Int): SymbolFrequency = new SymbolFrequency(symbol, frequency)
+	}
 
 	def generateHuffmanTree(list: List[Node[SymbolFrequency]]): Node[SymbolFrequency] = {
 		if (list.size == 1) {
@@ -27,12 +27,12 @@ object Problem50 {
 	}
 
 	def getSortedFrequencyTree(): List[Node[SymbolFrequency]] = {
-		val sfa: Node[SymbolFrequency] = Node(new SymbolFrequency("a", 5), Empty, Empty)
-		val sfb: Node[SymbolFrequency] = Node(new SymbolFrequency("b", 9), Empty, Empty)
-		val sfc: Node[SymbolFrequency] = Node(new SymbolFrequency("c", 12), Empty, Empty)
-		val sfd: Node[SymbolFrequency] = Node(new SymbolFrequency("d", 13), Empty, Empty)
-		val sfe: Node[SymbolFrequency] = Node(new SymbolFrequency("e", 16), Empty, Empty)
-		val sff: Node[SymbolFrequency] = Node(new SymbolFrequency("f", 45), Empty, Empty)
+		val sfa: Node[SymbolFrequency] = Node(SymbolFrequency("a", 5), Empty, Empty)
+		val sfb: Node[SymbolFrequency] = Node(SymbolFrequency("b", 9), Empty, Empty)
+		val sfc: Node[SymbolFrequency] = Node(SymbolFrequency("c", 12), Empty, Empty)
+		val sfd: Node[SymbolFrequency] = Node(SymbolFrequency("d", 13), Empty, Empty)
+		val sfe: Node[SymbolFrequency] = Node(SymbolFrequency("e", 16), Empty, Empty)
+		val sff: Node[SymbolFrequency] = Node(SymbolFrequency("f", 45), Empty, Empty)
 
 		val symbolList: List[Node[SymbolFrequency]] = List[Node[SymbolFrequency]](sfa, sfb, sfc, sfd, sfe, sff)
 		symbolList.sortBy { case (sf: Node[SymbolFrequency]) => sf.elem.frequency }
