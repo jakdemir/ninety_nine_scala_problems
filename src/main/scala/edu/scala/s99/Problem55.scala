@@ -33,7 +33,7 @@ object Problem55 {
 	}
 
 	def main(args: Array[String]): Unit = {
-		println(cBalancedAll(3, "x"))
+		println(cBalancedAll(4, "x"))
 	}
 
 }
