@@ -1,10 +1,12 @@
 package edu.scala.s99
 
 import edu.scala.s99.Problem28.lsort
+import edu.scala.s99.common.Empty
 import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
+import scala.collection.immutable.Stream
 import scala.collection.mutable
 
 @RunWith(classOf[JUnitRunner])
@@ -327,5 +329,20 @@ class ProblemSuite extends FunSuite {
 			assert(Problem49.gray(3) == List("000", "001", "011", "010", "110", "111", "101", "100"))
 		}
 	}
+
+	test("P56 Tree Sym") {
+		new ListGroup {
+			assert(Problem56.TreeExt(Problem55.cBalancedAll(5, 'x')(0)).isSymmetric() == false)
+			assert(Problem56.TreeExt(Problem55.cBalancedAll(5, 'x')(1)).isSymmetric() == true)
+		}
+	}
+
+//	test("P57 add value to Tree") {
+//		new ListGroup {
+//			//Need to write == operator for tree
+//			assert(Problem57.TreeExt(edu.scala.s99.common.Node(3, Empty, Empty)) == Problem57.TreeExt(Empty).addValue(3))
+//			assert(Problem57.TreeExt(edu.scala.s99.common.Node(3, edu.scala.s99.common.Node(2, Empty, Empty), edu.scala.s99.common.Node(4, Empty, Empty))) == Problem57.TreeExt(Problem57.TreeExt(Problem57.TreeExt(Empty).addValue(3)).addValue(4)).addValue(2))
+//		}
+//	}
 
 }
