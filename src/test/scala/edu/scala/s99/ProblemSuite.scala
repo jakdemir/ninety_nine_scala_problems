@@ -343,4 +343,73 @@ class ProblemSuite extends FunSuite {
 		}
 	}
 
+	test("P61A Number of leafs") {
+		new ListGroup {
+			val tree_2 = Problem55.cBalanced(3, 'x')
+			assert(Problem61A.TreeExt(tree_2).leafCount() == 2)
+
+			val tree_4 = Problem55.cBalanced(7, 'x')
+			assert(Problem61A.TreeExt(tree_4).leafCount() == 4)
+
+			val tree_7 = Problem55.cBalanced(14, 'x')
+			assert(Problem61A.TreeExt(tree_7).leafCount() == 7)
+
+			val tree_8 = Problem55.cBalanced(15, 'x')
+			assert(Problem61A.TreeExt(tree_8).leafCount() == 8)
+
+		}
+	}
+
+	test("P61B Number of leafs") {
+		new ListGroup {
+			val tree_2 = Problem55.cBalanced(3, 'x')
+			assert(Problem61B.TreeExt(tree_2).leaflist() == List('x', 'x'))
+
+			val tree_4 = Problem55.cBalanced(7, 'x')
+			assert(Problem61B.TreeExt(tree_4).leaflist() == List('x', 'x', 'x', 'x'))
+
+			val tree_7 = Problem55.cBalanced(14, 'x')
+			assert(Problem61B.TreeExt(tree_7).leaflist() == List('x', 'x', 'x', 'x', 'x', 'x', 'x'))
+
+			val tree_8 = Problem55.cBalanced(15, 'x')
+			assert(Problem61B.TreeExt(tree_8).leaflist() == List('x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'))
+
+		}
+	}
+
+	test("P62A Number of leafs") {
+		new ListGroup {
+			val tree_2 = Problem55.cBalanced(3, 'x')
+			assert(Problem62A.TreeExt(tree_2).internallist() == List('x'))
+
+			val tree_4 = Problem55.cBalanced(7, 'x')
+			assert(Problem62A.TreeExt(tree_4).internallist() == List('x', 'x', 'x'))
+
+			val tree_7 = Problem55.cBalanced(14, 'x')
+			assert(Problem62A.TreeExt(tree_7).internallist() == List('x', 'x', 'x', 'x', 'x', 'x', 'x'))
+
+			val tree_8 = Problem55.cBalanced(15, 'x')
+			assert(Problem62A.TreeExt(tree_8).internallist() == List('x', 'x', 'x', 'x', 'x', 'x', 'x'))
+
+		}
+	}
+
+	test("P62B leafs on a specific level") {
+		new ListGroup {
+			val tree_2 = Problem55.cBalanced(3, 'x')
+			assert(Problem62B.TreeExt(tree_2).atLevel(1) == List('x'))
+
+			val tree_4 = Problem55.cBalanced(7, 'x')
+			assert(Problem62B.TreeExt(tree_4).atLevel(2) == List('x', 'x'))
+			assert(Problem62B.TreeExt(tree_4).atLevel(3) == List('x', 'x', 'x', 'x'))
+
+			val tree_7 = Problem55.cBalanced(14, 'x')
+			assert(Problem62B.TreeExt(tree_7).atLevel(4) == List('x', 'x', 'x', 'x', 'x', 'x', 'x'))
+
+			val tree_8 = Problem55.cBalanced(15, 'x')
+			assert(Problem62B.TreeExt(tree_8).atLevel(4) == List('x', 'x', 'x', 'x', 'x', 'x', 'x', 'x'))
+		}
+	}
+
+
 }
