@@ -10,6 +10,10 @@ case class Node[T](val elem: T, val left: Tree[T], val right: Tree[T]) extends T
 	override def toString = "T(" + elem.toString + " " + left.toString + " " + right.toString + ")"
 }
 
+case class PositionedNode[+T](val elem: T, val left: Tree[T], val right: Tree[T], x: Int, y: Int) extends Tree[T] {
+	override def toString = "T[" + x.toString + "," + y.toString + "](" + elem.toString + " " + left.toString + " " + right.toString + ")"
+}
+
 case object Empty extends Tree[Nothing] {
 	override def toString = "_"
 }
@@ -17,3 +21,4 @@ case object Empty extends Tree[Nothing] {
 object Node {
 	def apply[T](value: T): Node[T] = Node(value, Empty, Empty)
 }
+
